@@ -10,3 +10,4 @@ pyromod
 psutil
 Pillow
 humanize
+ffmpeg
