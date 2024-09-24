@@ -10,6 +10,8 @@ COPY . .
 
 RUN pip3 install -r requirements.txt
 
-RUN apt update && apt install -y ffmpeg
+RUN apt-get update && \
+    apt-get install -y ffmpeg aria2 git wget pv jq python3-dev mediainfo && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD ["bash", "run.sh"]
