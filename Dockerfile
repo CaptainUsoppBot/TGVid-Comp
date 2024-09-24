@@ -1,5 +1,9 @@
 FROM mysterysd/wzmlx:heroku
 
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
@@ -9,7 +13,5 @@ RUN apt -qq update && \
 COPY . .
 
 RUN pip3 install -r requirements.txt
-
-Pip install ffmpeg
 
 CMD ["bash", "run.sh"]
