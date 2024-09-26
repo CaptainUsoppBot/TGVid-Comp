@@ -7,7 +7,7 @@ RUN apt -qq update && \
     apt-get install fontconfig -y -f
 
 COPY . .
-
+RUN apt install ffmpeg
 RUN pip3 install -r requirements.txt
-RUN apt update && apt install -y ffmpeg 
+ 
 CMD ["bash", "run.sh"]
