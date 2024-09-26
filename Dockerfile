@@ -6,7 +6,7 @@ RUN chmod 777 /usr/src/app
 # Update package list and install necessary dependencies
 RUN apt-get -qq update && \
     apt-get install fontconfig -y -f && \
-    apt install ffmpeg
+    apt-get install ffmpeg -y 
 
 COPY . .
 
