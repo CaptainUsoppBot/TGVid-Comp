@@ -3,13 +3,11 @@ FROM mysterysd/wzmlx:heroku
 WORKDIR /usr/src/app
 RUN chmod 777 /usr/src/app
 
-# Update package list and install necessary dependencies
-RUN apt-get -qq update && \
-    apt-get install fontconfig -y -f && \
-    apt-get install ffmpeg -y 
+RUN apt -qq update && \
+    apt-get install fontconfig -y -f
 
 COPY . .
 
 RUN pip3 install -r requirements.txt
-
+RUN apt update && apt install -y ffmpeg 
 CMD ["bash", "run.sh"]
